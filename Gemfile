@@ -55,9 +55,19 @@ group :development, :test do
 
   gem "rspec-rails"
   gem "faker"
+  gem "factory_bot_rails"
+  gem "pry-byebug"
+  gem "pry-clipboard"
+  gem "pry-rails"
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+end
+
+group :test do
+  gem "database_cleaner"
+  gem "pundit-matchers"
+  gem "shoulda-matchers"
 end
