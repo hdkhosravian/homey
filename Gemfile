@@ -72,4 +72,6 @@ group :test do
   gem "database_cleaner"
   gem "pundit-matchers"
   gem "shoulda-matchers"
+
+  gem "rails-controller-testing", "~> 1.0"
 end
