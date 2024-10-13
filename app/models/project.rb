@@ -1,8 +1,9 @@
 class Project < ApplicationRecord
   # Associations
   belongs_to :user  # The user who owns the project
+  has_one :status_change, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :status_changes, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   # Validations
   validates :title, presence: true

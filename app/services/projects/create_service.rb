@@ -11,7 +11,11 @@ module Projects
     # Executes the service to create a new project.
     # @return [Project] The newly created project.
     def execute
-      create_a_project
+      ActiveRecord::Base.transaction do
+        create_a_project
+        create_status_change if project.persisted?
+      end
+
       project
     end
 
@@ -28,6 +32,18 @@ module Projects
 
       # Save the project and handle errors
       errors.merge!(project.errors) unless project.save
+    end
+
+    # Call the service to create a status change with notification
+    def create_status_change
+      status_change_result = Projects::CreateStatusChangeService.run(
+        project: project,
+        user: user,
+        status: 'not_started'
+      )
+
+      # Merge errors if the status change or notification fails
+      errors.merge!(status_change_result.errors) unless status_change_result.valid?
     end
   end
 end
