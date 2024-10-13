@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Projects
+module StatusChanges
   # This service creates a status change for the project.
   class CreateStatusChangeService < ActiveInteraction::Base
     attr_reader :status_change

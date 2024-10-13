@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Projects::CreateStatusChangeService, type: :service do
+RSpec.describe StatusChanges::CreateStatusChangeService, type: :service do
   let(:user) { create(:user) }
   let(:project) { create(:project, user: user) }
 

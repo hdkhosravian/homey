@@ -36,7 +36,7 @@ module Projects
 
     # Call the service to create a status change with notification
     def create_status_change
-      status_change_result = Projects::CreateStatusChangeService.run(
+      status_change_result = StatusChanges::CreateStatusChangeService.run(
         project: project,
         user: user,
         status: 'not_started'
