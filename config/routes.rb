@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   resources :projects do
     resource :status_change, only: [:edit, :update]
     resources :comments, except: [:show]
+    resources :notifications, only: [:index]
   end
 end
