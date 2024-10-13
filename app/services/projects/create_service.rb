@@ -39,7 +39,7 @@ module Projects
       status_change_result = StatusChanges::CreateStatusChangeService.run(
         project: project,
         user: user,
-        status: 'not_started'
+        status: "not_started"
       )
 
       # Merge errors if the status change or notification fails

@@ -3,7 +3,7 @@
 module Notifications
   # This service creates a notification for a comment or status change.
   class CreateService < ActiveInteraction::Base
-    object :trackable, class: 'ApplicationRecord'  # The model the notification belongs to (polymorphic)
+    object :trackable, class: "ApplicationRecord"  # The model the notification belongs to (polymorphic)
     object :user, class: User
     object :project, class: Project
     string :message

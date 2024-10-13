@@ -11,7 +11,7 @@ RSpec.describe NotificationsController, type: :controller do
     it "allows access and retrieves all notifications for the project" do
       get :index, params: { project_id: project.id }
       expect(response).to have_http_status(:success)
-      expect(assigns(:notifications)).to eq([notification])
+      expect(assigns(:notifications)).to eq([ notification ])
     end
   end
 end

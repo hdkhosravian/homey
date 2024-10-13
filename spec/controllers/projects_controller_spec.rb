@@ -10,7 +10,7 @@ RSpec.describe ProjectsController, type: :controller do
     it "returns a success response and assigns user's projects" do
       get :index
       expect(response).to be_successful
-      expect(assigns(:projects)).to eq([project])
+      expect(assigns(:projects)).to eq([ project ])
     end
   end
 

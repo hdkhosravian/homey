@@ -7,7 +7,7 @@ module StatusChanges
 
     object :project, class: Project
     object :user, class: User
-    string :status, default: 'not_started'
+    string :status, default: "not_started"
 
     # Executes the service to create a status change.
     # @return [StatusChange] The newly created status change.

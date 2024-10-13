@@ -1,8 +1,8 @@
 class StatusChangesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_project
-  before_action :set_status_change, only: [:edit, :update]
-  before_action :authorize_status_change, only: [:edit, :update]  # Pundit authorization
+  before_action :set_status_change, only: [ :edit, :update ]
+  before_action :authorize_status_change, only: [ :edit, :update ]  # Pundit authorization
 
   # GET /projects/:project_id/status_change/edit
   def edit
@@ -19,7 +19,7 @@ class StatusChangesController < ApplicationController
     )
 
     if result.valid?
-      redirect_to project_path(@project), notice: 'Project status successfully updated.'
+      redirect_to project_path(@project), notice: "Project status successfully updated."
     else
       flash[:alert] = result.errors.full_messages.to_sentence
       render :edit

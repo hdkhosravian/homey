@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_project
-  before_action :set_comment, only: [:edit, :update, :destroy]
-  before_action :authorize_comment, only: [:edit, :update, :destroy]  # Pundit authorization
+  before_action :set_comment, only: [ :edit, :update, :destroy ]
+  before_action :authorize_comment, only: [ :edit, :update, :destroy ]  # Pundit authorization
 
   # GET /projects/:project_id/comments
   def index
@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
     )
 
     if result.valid?
-      redirect_to project_comments_path(@project), notice: 'Comment successfully created.'
+      redirect_to project_comments_path(@project), notice: "Comment successfully created."
     else
       flash[:alert] = result.errors.full_messages.to_sentence
       redirect_to project_comments_path(@project)
@@ -39,7 +39,7 @@ class CommentsController < ApplicationController
     )
 
     if result.valid?
-      redirect_to project_comments_path(@project), notice: 'Comment successfully updated.'
+      redirect_to project_comments_path(@project), notice: "Comment successfully updated."
     else
       flash[:alert] = result.errors.full_messages.to_sentence
       render :edit
@@ -49,7 +49,7 @@ class CommentsController < ApplicationController
   # DELETE /projects/:project_id/comments/:id
   def destroy
     @comment.destroy
-    redirect_to project_comments_path(@project), notice: 'Comment successfully deleted.'
+    redirect_to project_comments_path(@project), notice: "Comment successfully deleted."
   end
 
   private

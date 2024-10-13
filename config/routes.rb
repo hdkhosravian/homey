@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   resources :projects do
-    resource :status_change, only: [:edit, :update]
-    resources :comments, except: [:show]
-    resources :notifications, only: [:index]
+    resource :status_change, only: [ :edit, :update ]
+    resources :comments, except: [ :show ]
+    resources :notifications, only: [ :index ]
   end
 end

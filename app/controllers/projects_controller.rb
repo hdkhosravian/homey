@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!  # Ensure the user is logged in
-  before_action :find_project, only: [:show, :edit, :update, :destroy]
-  before_action :authorize_project_owner!, only: [:edit, :update, :destroy]
+  before_action :find_project, only: [ :show, :edit, :update, :destroy ]
+  before_action :authorize_project_owner!, only: [ :edit, :update, :destroy ]
 
   # GET /projects
   def index
