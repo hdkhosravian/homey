@@ -8,6 +8,7 @@ RSpec.describe StatusChange, type: :model do
   describe "associations" do
     it { should belong_to(:user) }
     it { should belong_to(:project) }
+    it { should have_many(:notifications).dependent(:destroy) }
   end
 
   describe "validations" do

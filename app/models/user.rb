@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # Associations
-  has_many :projects  # Projects that the user owns
-  has_many :comments  # Comments made by the user
-  has_many :status_changes  # Status changes made by the user
+  has_many :projects, dependent: :destroy  # Projects that the user owns
+  has_many :comments, dependent: :destroy  # Comments made by the user
+  has_many :notifications, dependent: :destroy
 end

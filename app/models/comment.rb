@@ -2,6 +2,7 @@ class Comment < ApplicationRecord
   # Associations
   belongs_to :project  # The project the comment belongs to
   belongs_to :user     # The user who made the comment (author)
+  has_many :notifications, as: :trackable, dependent: :destroy
 
   # Validations
   validates :content, presence: true

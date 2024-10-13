@@ -2,6 +2,7 @@ class StatusChange < ApplicationRecord
   # Associations
   belongs_to :project  # The project the status change belongs to
   belongs_to :user     # The user who made the status change
+  has_many :notifications, as: :trackable, dependent: :destroy
 
   # Enum for status
   enum status: {

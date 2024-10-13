@@ -6,8 +6,8 @@ RSpec.describe Project, type: :model do
 
   describe "associations" do
     it { should belong_to(:user) }
-    it { should have_many(:comments).dependent(:destroy) }
-    it { should have_many(:status_changes).dependent(:destroy) }
+    it { should have_one(:status_change).dependent(:destroy) }
+    it { should have_many(:notifications).dependent(:destroy) }
   end
 
   describe "validations" do

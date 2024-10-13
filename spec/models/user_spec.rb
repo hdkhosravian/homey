@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
   describe "associations" do
     it { should have_many(:projects) }
     it { should have_many(:comments) }
-    it { should have_many(:status_changes) }
+    it { should have_many(:notifications).dependent(:destroy) }
   end
 
   describe "creation" do
